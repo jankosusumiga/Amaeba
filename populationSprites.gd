@@ -93,8 +93,8 @@ func cross(population):
 				child2.append(parent1.genes[i])
 				child1.append(parent2.genes[i])
 		children.append(Individual.new(child1,str(numberOfIndividuals)))
-		#children.append(Individual.new(child2,str(numberOfIndividuals+1)))
-		numberOfIndividuals+=1
+		children.append(Individual.new(child2,str(numberOfIndividuals+1)))
+		numberOfIndividuals+=2
 	return children
 
 var numberOfIndividuals=0
@@ -103,7 +103,7 @@ func mutate(population):
 	# izaberete jednu, ili mali broj jedinki,
 	# i promenite joj nasumicno na neki nacin reflexMatrix
 	var mutated=population[randi_range(0,len(population)-1)]
-	mutated.genes[randi_range(0,16-1)]=randf()-0.5
+	mutated.genes[randi_range(0,15)]=(randf()-0.5)*2.0
 	mutated.name=mutated.name+"M"
 	return population;
 
@@ -157,5 +157,3 @@ func _ready():
 
 func _process(delta):
 	pass
-
-
